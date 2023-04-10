@@ -16,6 +16,19 @@ export const FavoritesPage = () => {
     setUpdated(imageId);
   };
 
+  if (!images.length) {
+    return (
+      <div className="favorites-page">
+        <header>
+          <h1>Favorite Images</h1>
+        </header>
+        <div className="empty-box">
+          <h1>You didn't add anything to Favorites</h1>
+        </div>
+        <Link to='/' className="back-button">Back</Link>
+      </div>
+    )
+  }
   return (
     <div className="favorites-page">
       <header>
