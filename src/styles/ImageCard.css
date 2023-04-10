@@ -1,0 +1,38 @@
+.image {
+    width: 100%;
+}
+  
+.card-box {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    width: auto;
+    height: min-content;
+    margin: 10px;
+    max-width: 30%;
+    cursor: zoom-in;
+}
+  
+.icon {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 35px;
+    color: black;
+    border: none;
+    background: none;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+  
+.icon:hover {
+    color: #2771d3;
+    transition: 0.3s;
+    transform: scale(1.5);
+}
+  
