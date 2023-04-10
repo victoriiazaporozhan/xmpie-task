@@ -1,0 +1,91 @@
+.results-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 5;
+  height: calc(100vh - 300px);
+  overflow: hidden;
+  background: #2771d3;
+  padding-top: 10px;
+  width: 100%;
+}
+
+.clicked-image {
+  max-height: 60vh;
+}
+  
+/* Hide scrollbar for Chrome, Safari and Opera */
+.images-box::-webkit-scrollbar, html::-webkit-scrollbar  {
+  display: none;
+}
+  
+/* Hide scrollbar for IE, Edge and Firefox */
+.results-container, html {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+  
+.empty-container {
+  position: relative;
+  bottom: 0px;
+  width: 100%;
+  min-height: calc(100vh - 105px);
+  background: #2771d3;
+  margin-top: 5px;
+  transition: 1s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  
+.empty-container p {
+  font-size: 30px;
+  color: white;
+}
+  
+.show {
+  transition: flex 1s ease;
+}
+  
+.hide {
+  position: fixed;
+  bottom: -100vh;
+  flex: 0;
+}
+  
+.images-box {
+  width: 85%;
+  padding: 0;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  color: white;
+}
+
+/* Modal */
+.modal {
+  width: fit-content;
+  background-color: rgba(53, 51, 53, 0.5);
+  max-width: 80%;
+  max-height: 80vh;
+  margin: 40px auto;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #5a626fbf;
+}

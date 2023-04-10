@@ -2,6 +2,7 @@ import React, { FC, useState } from 'react';
 import { SearchBar } from '../components/SearchBar.tsx';
 import { SearchedImages } from '../components/SearchedImages.tsx';
 import { searchImages } from '../api/images.ts';
+import '../styles/HomePage.css';
 
 export const HomePage: FC = () => {
   const [isLoading, setIsLoading] = useState(false);
