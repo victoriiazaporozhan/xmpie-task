@@ -37,7 +37,7 @@ export const FavoritesPage = () => {
         <h1>Favorite Images</h1>
       </header>
       <div className="images-box">
-        {images?.map((image) => (
+        {favoriteImages?.map((image) => (
           <ImageCard
             key={image[0]}
             imageURL={image[1]}
