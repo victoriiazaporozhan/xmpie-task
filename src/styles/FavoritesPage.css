@@ -4,6 +4,10 @@
     flex-direction: column;
     min-height: 100vh;
 }
+
+.favorites-page img {
+    cursor: default;
+}
   
 .favorites-page header {
     width: 100%;
@@ -12,15 +16,15 @@
     color: #316edb;
 }
   
-.favorites-page .back-button {
-    flex: 0;
+.favorites-page .home-page-link {
+    flex: 0.1;
     color: white;
-    margin-left: 50px;
+    margin-left: 20px;
     text-decoration: none;
     font-size: 18px;
 }
   
-.favorites-page .back-button:hover {
+.favorites-page .home-page-link:hover {
     color: #316edb;
     transition: 0.3s;
 }

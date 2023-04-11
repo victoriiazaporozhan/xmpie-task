@@ -1,35 +1,22 @@
-import React, { FC, useEffect, useState } from "react"
+import React, { FC } from "react"
 import { IoHeartOutline, IoHeart } from 'react-icons/io5';
 import '../styles/ImageCard.css';
 
 interface Props {
   imageId: string;
   imageURL: string;
-  onUpdate?: (imageId) => void;
-  onImageClick: (imageURL) => void;
+  isFavorite: boolean;
+  onImageClick?: (imageURL) => void;
+  onFavoriteClick: () => void;
 }
 
-export const ImageCard: FC<Props> = ({ imageId, imageURL, onImageClick, onUpdate = () => {} }) => {
-  const [isFavorite, setIsFavorite] = useState(false);
-
-  useEffect(() => {
-    let isFav = localStorage.getItem(imageId);
-    setIsFavorite(!!isFav);
-  }, [isFavorite, imageId])
-
-  const onFavoriteClick = () => {
-    onUpdate(imageId);
-    const isImageFavorite = (localStorage.getItem(imageId));
-
-    if(isImageFavorite) {
-      localStorage.removeItem(imageId);
-      setIsFavorite(false);
-    } else {
-      localStorage.setItem(imageId, imageURL);
-      setIsFavorite(true);
-    }
-  }
-
+export const ImageCard: FC<Props> = ({
+  imageId,
+  imageURL,
+  isFavorite,
+  onFavoriteClick,
+  onImageClick = () => {},
+}) => {
   return (
     <div className="card-box">
       <img

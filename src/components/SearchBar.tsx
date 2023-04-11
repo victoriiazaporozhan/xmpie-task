@@ -30,7 +30,7 @@ export const SearchBar: FC<Props> = ({ onSearch, isLoading }) => {
       <button
         className="search-button"
         onClick={() => search()}
-        disabled={!searchValue || isLoading}
+        disabled={!searchValue || isLoading || (searchValue.trim() === prevSearchValue.trim()) || (!searchValue.trim())}
       >
         {isLoading ? "Searching..." : "Search"}
       </button>
