@@ -10,6 +10,12 @@
   width: 100%;
 }
 
+.results-container h1 {
+  color: white;
+  margin-top: 100px;
+  align-self: center;
+}
+
 .clicked-image {
   max-height: 60vh;
 }
@@ -23,24 +29,6 @@
 .results-container, html {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
-}
-  
-.empty-container {
-  position: relative;
-  bottom: 0px;
-  width: 100%;
-  min-height: calc(100vh - 105px);
-  background: #2771d3;
-  margin-top: 5px;
-  transition: 1s linear;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-  
-.empty-container p {
-  font-size: 30px;
-  color: white;
 }
   
 .show {

@@ -1,21 +1,25 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { SearchBar } from '../components/SearchBar.tsx';
 import { SearchedImages } from '../components/SearchedImages.tsx';
-import { searchImages } from '../api/images.ts';
+import { useImagesStorage } from '../hooks/useImagesStorage.ts';
+
 import '../styles/HomePage.css';
 
 export const HomePage: FC = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [images, setImages] = useState(null);
-  const [show, setShow] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [showResults, setShowResults] = useState(false);
+  const {toggleFavorites, images} = useImagesStorage(searchQuery);
 
   const onSearch = async (query) => {
     setIsLoading(true);
-    const res = await searchImages(query);
-    setImages(res.hits);
-    setIsLoading(false);
-    setShow(true);
+    setSearchQuery(query)
+    setShowResults(true);
   }
+
+  useEffect(() => {
+    setIsLoading(false);
+  }, [images])
 
   return (
     <div className="home-page">
@@ -25,7 +29,8 @@ export const HomePage: FC = () => {
       />
       <SearchedImages
         isLoading={isLoading}
-        showResults={show}
+        showResults={showResults}
+        toggleFavorites={toggleFavorites}
         images={images}
       />
     </div>
