@@ -4,20 +4,20 @@ import { ImageCard } from "../components/ImageCard.tsx";
 import "../styles/FavoritesPage.css";
 
 export const FavoritesPage = () => {
-  const [images, setImages] = useState<[string, string][]>([]);
+  const [favoriteImages, setFavoriteImages] = useState<[string, string][]>([]);
 
   useLayoutEffect(() => {
     const savedImages = Object.entries(localStorage);
-    setImages(savedImages);
+    setFavoriteImages(savedImages);
   }, []);
 
   const removeFromFavorites = (id) => {
     localStorage.removeItem(id);
     const savedImages = Object.entries(localStorage);
-    setImages(savedImages);
+    setFavoriteImages(savedImages);
   };
 
-  if (!images.length) {
+  if (!favoriteImages.length) {
     return (
       <div className="favorites-page">
         <header>
