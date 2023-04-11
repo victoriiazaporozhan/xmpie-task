@@ -12,7 +12,7 @@ export const SearchBar: FC<Props> = ({ onSearch, isLoading }) => {
   const [searchValue, setSearchValue] = useState('');
 
   const search = () => {
-    if(searchValue.trim() !== prevSearchValue.trim()) {
+    if((searchValue.trim() !== prevSearchValue.trim()) && searchValue.trim()) {
       onSearch(searchValue);
     };
     setPrevSearchValue(searchValue);
