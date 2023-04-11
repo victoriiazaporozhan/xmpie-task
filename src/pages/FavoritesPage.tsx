@@ -1,6 +1,8 @@
 import React, { useLayoutEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import { ImageCard } from "../components/ImageCard.tsx";
+import { removeItemFromLocalStorage } from '../utils/localStorage.ts';
+
 import "../styles/FavoritesPage.css";
 
 export const FavoritesPage = () => {
@@ -11,8 +13,8 @@ export const FavoritesPage = () => {
     setFavoriteImages(savedImages);
   }, []);
 
-  const removeFromFavorites = (id) => {
-    localStorage.removeItem(id);
+  const removeFromFavorites = (id: string) => {
+    removeItemFromLocalStorage(id);
     const savedImages = Object.entries(localStorage);
     setFavoriteImages(savedImages);
   };
