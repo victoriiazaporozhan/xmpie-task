@@ -1,5 +1,10 @@
 import { useEffect, useState, useCallback } from "react";
 import { useApi } from './useApi.ts';
+import {
+  getItemFromLocalStorage,
+  setItemToLocalStorage,
+  removeItemFromLocalStorage
+} from '../utils/localStorage.ts';
 
 export const useImagesStorage = (searchQuery: string) => {
   const [images, setImages] = useState<{id: number, webformatURL: string, isFavorite: boolean}[]>([]);
@@ -21,31 +26,6 @@ export const useImagesStorage = (searchQuery: string) => {
   useEffect(() => {
     searchQuery && getImagesByQuery();
   }, [searchQuery]);
-
-  const getItemFromLocalStorage = (id) => {
-    try {
-      const item = localStorage.getItem(id);
-      return item;
-    } catch {
-      return null;
-    }
-  };
-
-  const setItemToLocalStorage = (id: string, value: string) => {
-    try {
-      localStorage.setItem(id, value);
-    } catch {
-      return null;
-    }
-  };
-
-  const removeItemFromLocalStorage = (id: string) => {
-    try {
-      localStorage.removeItem(id.toString());
-    } catch {
-      return null;
-    }
-  }
 
   const toggleFavorites = useCallback( async (id: number, value: string) => {
     const isItemFavorite = localStorage.getItem(String(id));
